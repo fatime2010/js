@@ -1,29 +1,42 @@
-const allLists=document.querySelectorAll('li');
-for(let index=0;index<allLists.length;index++){
-    allLists[index].style.color = "white";
-    allLists[index].style.border='5px';
-    allLists[index].style.borderColor = "gray";
-    allLists[0].textContent = "Mektebe gedirem";
-    allLists[1].textContent = "Mektebden gelib hazirliga gedirem";
-    allLists[2].textContent = "Hazirligdan gelib istrahet edirem";
-    allLists[3].textContent = "Derslerimi eleyirem";
-}
+const url = 'https://restcountries.com/v3.1/all';
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const cardWrapper = document.querySelector('.card-wrapper');
+        const countries = data;
 
+        countries.forEach((country) => {
+            const card = document.createElement('div')
+            card.className = "card";
+            card.innerHTML =   `
+            <div class="card-img">
+                <h1>${country.flag}</h1>
+            </div>
+            <div class="card-name">
+                <h2>${country.name.common}</h2>
+            </div>
+            <div class="card-population">
+                <h2>${country.population}</h2>
+            </div>
+            <div class="card-desc">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, odit cum. Consequatur enim quo libero!</p>
+            </div>
+            
+            `
+            cardWrapper.appendChild(card);
+        })
+        
+        
+    })
 
-
-    const x = document.getElementsByTagName('h1');
-    function changeColor(){
-    x.style.color = "blue";
-    if (x.style.color = "blue") {
-      x.style.color = "red";
-    };
-    if(x.style.color = "red"){
-        x.style.color = "green";
-    }};
-  
-setInterval(changeColor, 2000);
-
-
-
-
-
+    .catch( error => {
+        console.log(error);
+    })
+    document.getElementById('showButton').addEventListener('click', function() {
+        let hiddenText = document.getElementById('hiddenText');
+        if (hiddenText.style.display === 'none') {
+            hiddenText.style.display = 'block';
+        } else {
+            hiddenText.style.display = 'none';
+        }
+    });
