@@ -1,0 +1,30 @@
+.text{
+ text-align: center;
+font-size: 45px;
+
+}
+.link{
+    text-align: center;
+    font-size: 35px;  
+}
+.box{
+    border: 1px rgb(3, 173, 3) solid;
+    height: 70px;
+    width: 70%;
+    background-color:rgb(3, 173, 3) ;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+.link1{
+    padding-top: 25px;
+    padding-left: 10px;
+}
+.python{
+    padding-left: 500px;
+    margin-top: -20px;
+}
+.done{
+    padding-left: 900px; 
+    margin-top: -20px;
+}
+
